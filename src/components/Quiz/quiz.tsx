@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./quiz.css";
 import logo from "../../assets/logo.png";
+import Pheasant from "../FamPages/Pheasant";
+import Pangolin from "../FamPages/Pangolin";
+import Deer from "../FamPages/Deer";
+import Viper from "../FamPages/Viper";
 
 const Quiz = () => {
   // score tracker and state arrays
@@ -49,18 +53,21 @@ const Quiz = () => {
     }
   }
 
+  /*
   // final result pages:
-  function Pheasant() {}
-  function Pangolin() {
-    return (
-      <div>
-        <h1>Your Fam is...</h1>
-        <img src="../../assets/Pangolin.png" />
-      </div>
-    );
+  function Pheasant() {
+    return <Pheasant />;
   }
-  function Deer() {}
-  function Viper() {}
+  function Pangolin() {
+    return <Pangolin />;
+  }
+  function Deer() {
+    return <Deer />;
+  }
+  function Viper() {
+    return <Viper />;
+  }
+  */
 
   // once finished with all of the questions, grab the result and display the correct fam page
   if (isFinished) {
