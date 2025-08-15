@@ -42,6 +42,7 @@ h2{
     height: 70px;
     background-color: rgb(62, 29, 155);
     color: white;
+    border: none;
     border-radius: 8px;
     margin-bottom: 10px;
     font-size: 20px;
