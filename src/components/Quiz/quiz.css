@@ -44,13 +44,20 @@ h2{
     color: white;
     border: none;
     border-radius: 8px;
-    margin-bottom: 10px;
     font-size: 20px;
     cursor: pointer;
     padding: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
 }
 .next button:hover{
     background-color: rgb(181, 181, 230);
+}
+.next button:disabled{
+    cursor: default;
+    background-color: rgb(139, 139, 151);
+    color: rgb(109, 108, 108);
 }
 .image-box{
     border-image: url("../../assets/cloud.png") 35 /

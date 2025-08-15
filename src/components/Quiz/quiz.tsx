@@ -3,6 +3,7 @@ import "./quiz.css";
 import logo from "../../assets/logo.png";
 
 const Quiz = () => {
+  // score tracker and state arrays
   let totalScore = 0;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
@@ -19,6 +20,7 @@ const Quiz = () => {
     setAnswers(newAnswers);
   };
 
+  // goes to the result page when clicking next on the last question
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
@@ -27,12 +29,14 @@ const Quiz = () => {
     }
   };
 
+  // goes back to the previous button
   const prevQuestion = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion((prev) => prev - 1);
     }
   };
 
+  // score ranges for respective fams
   function getQuizResult() {
     if (totalScore <= 10) {
       return "Pheasant";
@@ -45,10 +49,32 @@ const Quiz = () => {
     }
   }
 
+  // final result pages:
+  function Pheasant() {}
+  function Pangolin() {
+    return (
+      <div>
+        <h1>Your Fam is...</h1>
+        <img src="../../assets/Pangolin.png" />
+      </div>
+    );
+  }
+  function Deer() {}
+  function Viper() {}
+
+  // once finished with all of the questions, grab the result and display the correct fam page
   if (isFinished) {
-    let fam = getQuizResult();
-    fam += ".png";
-    return <ResultPage fam={fam} />;
+    let result = getQuizResult();
+    switch (result) {
+      case "Pheasant":
+        return Pheasant();
+      case "Pangolin":
+        return Pangolin();
+      case "Deer":
+        return Deer();
+      case "Viper":
+        return Viper();
+    }
   }
 
   return (
@@ -63,7 +89,10 @@ const Quiz = () => {
           <button>Next</button>
         </div>
       </div>
-      <div>
+      <div className="container">
+        <div className="image-box">
+          <img src={questions[currentQuestion].image} alt="TSA logo" />
+        </div>
         <h2>{questions[currentQuestion].question}</h2>
         {questions[currentQuestion].answers.map((opt, idx) => (
           <button
@@ -77,7 +106,7 @@ const Quiz = () => {
             {Object.keys(opt)[0]}
           </button>
         ))}
-        <div>
+        <div className="next">
           <button onClick={prevQuestion} disabled={currentQuestion === 0}>
             Back
           </button>
@@ -88,11 +117,12 @@ const Quiz = () => {
   );
 };
 
+// question array
 const questions = [
   // question 1
   {
     question: "How early will you depart",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { "Early, who knows if I might get lost!": 3 },
       { "Calculate to be just on time": 7 },
@@ -104,7 +134,7 @@ const questions = [
   // question 2
   {
     question: "What will you wear",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { "Cute, gotta doll up": 4 },
       { "Cool, must maintain aura": 8 },
@@ -118,7 +148,7 @@ const questions = [
   // question 3
   {
     question: "How will you get there",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { "Walk, gotta get my steps in": 1 },
       { "Bus, I'm nawt walking": 6 },
@@ -130,7 +160,7 @@ const questions = [
   // question 4
   {
     question: "See someone with their backpack open, wyd?",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { "Pretend you don’t see": 2 },
       { "Laugh, that’s embarrassing haha": 9 },
@@ -142,7 +172,7 @@ const questions = [
   // question 5
   {
     question: "You get there, wyd",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { "Sit down right away": 3 },
       { "Wait for friends": 7 },
@@ -154,7 +184,7 @@ const questions = [
   // question 6
   {
     question: "What boba flavor ru getting?",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { "Thai Tea": 4 },
       { "Passionfruit Tea": 6 },
@@ -166,7 +196,7 @@ const questions = [
   // question 7
   {
     question: "After gbm where u going",
-    image: "./logo.png",
+    image: "../../assets/logo.png",
     answers: [
       { Volleyball: 7 },
       { "Yap with the people": 1 },
@@ -175,14 +205,5 @@ const questions = [
     ],
   },
 ];
-
-function ResultPage({ fam }) {
-  return (
-    <div>
-      <h1>Your Fam is...</h1>
-      <img src={fam} />
-    </div>
-  );
-}
 
 export default Quiz;
