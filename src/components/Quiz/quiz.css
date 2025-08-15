@@ -1,9 +1,11 @@
+h2{
+    text-align: center;
+}
 .container{
     width: 700px;
     margin: auto;
     margin-top: 80px;
     margin-bottom: 80px;
-    background: white;
     color: #262626;
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
     border: none;
     background: grey;
 }
-button{
+.container button{
     display: flex;
     align-items:center;
     height: 70px;
@@ -27,10 +29,31 @@ button{
     font-size: 20px;
     cursor: pointer;
 }
-button:hover{
+.container button:hover{
+    background-color: rgb(181, 181, 230);
+}
+.next {
+    text-align: center;
+}
+.next button{
+    display: inline-block;
+    align-items: center;
+    width: 180px;
+    height: 70px;
+    background-color: rgb(62, 29, 155);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+.next button:hover{
     background-color: rgb(181, 181, 230);
 }
 .image-box{
+    border-image: url("../../assets/cloud.png") 35 /
+  20px round;
     display: flex;
     align-self: center;
     padding-left: 15px;
