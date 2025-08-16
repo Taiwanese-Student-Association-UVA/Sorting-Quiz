@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./quiz.css";
 import logo from "../../assets/logo.png";
 import Pheasant from "../FamPages/Pheasant";
@@ -8,17 +8,17 @@ import Viper from "../FamPages/Viper";
 
 const Quiz = () => {
   // score tracker and state arrays
-  let totalScore = 0;
+  const totalScore = useRef(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const [isFinished, setIsFinished] = useState(false);
 
   // once answer is chosen, add the score to totalScore
   // create a shallow copy of the answers state array and stores answer user has chosen
-  const handleChoice = (answerIndex) => {
-    totalScore += Object.values(
-      questions[currentQuestion].answers[answerIndex]
-    )[0];
+  const handleChoice = (answerIndex: number) => {
+    let score = questions[currentQuestion].answers[answerIndex][1] as number;
+    totalScore.current += score;
+    console.log(totalScore);
     const newAnswers = [...answers];
     newAnswers[currentQuestion] = answerIndex;
     setAnswers(newAnswers);
@@ -42,32 +42,17 @@ const Quiz = () => {
 
   // score ranges for respective fams
   function getQuizResult() {
-    if (totalScore <= 10) {
+    let num = totalScore.current;
+    if (7 <= num && num <= 20) {
       return "Pheasant";
-    } else if (11 <= totalScore && totalScore <= 20) {
+    } else if (21 <= num && num <= 34) {
       return "Pangolin";
-    } else if (21 <= totalScore && totalScore <= 30) {
+    } else if (35 <= num && num <= 41) {
       return "Deer";
-    } else if (31 <= totalScore) {
+    } else if (42 <= num && num <= 100) {
       return "Viper";
     }
   }
-
-  /*
-  // final result pages:
-  function Pheasant() {
-    return <Pheasant />;
-  }
-  function Pangolin() {
-    return <Pangolin />;
-  }
-  function Deer() {
-    return <Deer />;
-  }
-  function Viper() {
-    return <Viper />;
-  }
-  */
 
   // once finished with all of the questions, grab the result and display the correct fam page
   if (isFinished) {
@@ -92,9 +77,6 @@ const Quiz = () => {
         <div className="image-box">
           <img src={logo} alt="TSA logo" />
         </div>
-        <div className="next">
-          <button>Next</button>
-        </div>
       </div>
       <div className="container">
         <div className="image-box">
@@ -110,7 +92,7 @@ const Quiz = () => {
                 answers[currentQuestion] === idx ? "lightblue" : "white",
             }}
           >
-            {Object.keys(opt)[0]}
+            {opt[0]}
           </button>
         ))}
         <div className="next">
@@ -131,10 +113,10 @@ const questions = [
     question: "How early will you depart",
     image: "../../assets/logo.png",
     answers: [
-      { "Early, who knows if I might get lost!": 3 },
-      { "Calculate to be just on time": 7 },
-      { "Take your time—it’s not that deep": 1 },
-      { "Whenever I feel like it": 9 },
+      ["Early, who knows if I might get lost!", 1],
+      ["Calculate to be just on time", 3],
+      ["Take your time—it’s not that deep", 5],
+      ["Whenever I feel like it", 6],
     ],
   },
 
@@ -143,12 +125,10 @@ const questions = [
     question: "What will you wear",
     image: "../../assets/logo.png",
     answers: [
-      { "Cute, gotta doll up": 4 },
-      { "Cool, must maintain aura": 8 },
-      {
-        "Professional, never know what connections I can make": 5,
-      },
-      { "I dont gaf": 2 },
+      ["Cute, gotta doll up", 1],
+      ["Cool, must maintain aura", 6],
+      ["Professional, never know what connections I can make", 3],
+      ["I dont gaf", 5],
     ],
   },
 
@@ -157,10 +137,10 @@ const questions = [
     question: "How will you get there",
     image: "../../assets/logo.png",
     answers: [
-      { "Walk, gotta get my steps in": 1 },
-      { "Bus, I'm nawt walking": 6 },
-      { "Uber, no plebs in my area": 3 },
-      { "Veo, …": 7 },
+      ["Walk, gotta get my steps in", 5],
+      ["Bus, I'm nawt walking", 3],
+      ["Uber, no plebs in my area", 1],
+      ["Veo, …", 6],
     ],
   },
 
@@ -169,10 +149,10 @@ const questions = [
     question: "See someone with their backpack open, wyd?",
     image: "../../assets/logo.png",
     answers: [
-      { "Pretend you don’t see": 2 },
-      { "Laugh, that’s embarrassing haha": 9 },
-      { "Tell them, can’t do them like that": 5 },
-      { "Try to zip it back up… but backfires": 6 },
+      ["Pretend you don’t see", 1],
+      ["Laugh, that’s embarrassing haha", 6],
+      ["Tell them, can’t do them like that", 5],
+      ["Try to zip it back up… but backfires", 3],
     ],
   },
 
@@ -181,10 +161,10 @@ const questions = [
     question: "You get there, wyd",
     image: "../../assets/logo.png",
     answers: [
-      { "Sit down right away": 3 },
-      { "Wait for friends": 7 },
-      { "Go on phone": 8 },
-      { "Start talking to new people": 1 },
+      ["Sit down right away", 1],
+      ["Wait for friends", 3],
+      ["Go on phone", 6],
+      ["Start talking to new people", 5],
     ],
   },
 
@@ -193,10 +173,10 @@ const questions = [
     question: "What boba flavor ru getting?",
     image: "../../assets/logo.png",
     answers: [
-      { "Thai Tea": 4 },
-      { "Passionfruit Tea": 6 },
-      { Water: 2 },
-      { Nothing: 9 },
+      ["Thai Tea", 5],
+      ["Passionfruit Tea", 3],
+      ["Water please!", 1],
+      ["Nothing. Let me dehydrate in peace", 6],
     ],
   },
 
@@ -205,10 +185,10 @@ const questions = [
     question: "After gbm where u going",
     image: "../../assets/logo.png",
     answers: [
-      { Volleyball: 7 },
-      { "Yap with the people": 1 },
-      { "Explore Newcomb Ballroom": 8 },
-      { "Go straight home": 3 },
+      ["Let's volleyball", 3],
+      ["Yap with the people", 5],
+      ["Explore Newcomb Ballroom", 6],
+      ["Go straight home", 1],
     ],
   },
 ];
