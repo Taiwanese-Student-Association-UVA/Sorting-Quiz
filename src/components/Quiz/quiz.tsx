@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./quiz.css";
 import logo from "../../assets/logo.png";
 import Pheasant from "../FamPages/Pheasant";
@@ -8,7 +8,7 @@ import Viper from "../FamPages/Viper";
 
 const Quiz = () => {
   // score tracker and state arrays
-  const totalScore = useRef(0);
+  let totalScore = 0;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const [isFinished, setIsFinished] = useState(false);
@@ -16,9 +16,6 @@ const Quiz = () => {
   // once answer is chosen, add the score to totalScore
   // create a shallow copy of the answers state array and stores answer user has chosen
   const handleChoice = (answerIndex: number) => {
-    let score = questions[currentQuestion].answers[answerIndex][1] as number;
-    totalScore.current += score;
-    console.log(totalScore);
     const newAnswers = [...answers];
     newAnswers[currentQuestion] = answerIndex;
     setAnswers(newAnswers);
@@ -42,7 +39,13 @@ const Quiz = () => {
 
   // score ranges for respective fams
   function getQuizResult() {
-    let num = totalScore.current;
+    for (let i = 0; i < questions.length; i++) {
+      let index = answers[i];
+      let score = questions[i].answers[index][1] as number;
+      totalScore += score;
+      console.log(totalScore);
+    }
+    let num = totalScore;
     if (7 <= num && num <= 20) {
       return "Pheasant";
     } else if (21 <= num && num <= 34) {
@@ -72,13 +75,6 @@ const Quiz = () => {
   return (
     <>
       <div className="container">
-        <h1>Sorting Quiz!</h1>
-        <hr />
-        <div className="image-box">
-          <img src={logo} alt="TSA logo" />
-        </div>
-      </div>
-      <div className="container">
         <div className="image-box">
           <img src={questions[currentQuestion].image} alt="TSA logo" />
         </div>
@@ -99,7 +95,12 @@ const Quiz = () => {
           <button onClick={prevQuestion} disabled={currentQuestion === 0}>
             Back
           </button>
-          <button onClick={nextQuestion}>Next</button>
+          <button
+            onClick={nextQuestion}
+            disabled={answers[currentQuestion] === null}
+          >
+            Next
+          </button>
         </div>
       </div>
     </>
@@ -111,7 +112,7 @@ const questions = [
   // question 1
   {
     question: "How early will you depart",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Early, who knows if I might get lost!", 1],
       ["Calculate to be just on time", 3],
@@ -123,7 +124,7 @@ const questions = [
   // question 2
   {
     question: "What will you wear",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Cute, gotta doll up", 1],
       ["Cool, must maintain aura", 6],
@@ -135,7 +136,7 @@ const questions = [
   // question 3
   {
     question: "How will you get there",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Walk, gotta get my steps in", 5],
       ["Bus, I'm nawt walking", 3],
@@ -147,7 +148,7 @@ const questions = [
   // question 4
   {
     question: "See someone with their backpack open, wyd?",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Pretend you don’t see", 1],
       ["Laugh, that’s embarrassing haha", 6],
@@ -159,7 +160,7 @@ const questions = [
   // question 5
   {
     question: "You get there, wyd",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Sit down right away", 1],
       ["Wait for friends", 3],
@@ -171,7 +172,7 @@ const questions = [
   // question 6
   {
     question: "What boba flavor ru getting?",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Thai Tea", 5],
       ["Passionfruit Tea", 3],
@@ -183,7 +184,7 @@ const questions = [
   // question 7
   {
     question: "After gbm where u going",
-    image: "../../assets/logo.png",
+    image: logo,
     answers: [
       ["Let's volleyball", 3],
       ["Yap with the people", 5],
