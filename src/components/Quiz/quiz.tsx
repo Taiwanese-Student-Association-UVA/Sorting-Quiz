@@ -62,13 +62,13 @@ const Quiz = () => {
     let result = getQuizResult();
     switch (result) {
       case "Pheasant":
-        return Pheasant();
+        return <Pheasant />;
       case "Pangolin":
-        return Pangolin();
+        return <Pangolin />;
       case "Deer":
-        return Deer();
+        return <Deer />;
       case "Viper":
-        return Viper();
+        return <Viper />;
     }
   }
 
