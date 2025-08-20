@@ -8,28 +8,14 @@
 }
 
 .box img{
-    height: 75vh;
+    height: 70vh;
     object-fit: contain;
-}
-
-.box button{
-    display: inline-block;
-    align-items: center;
-    width: 180px;
-    height: 70px;
-    background-color: rgb(62, 29, 155);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 0;
-    margin: 20px auto;
+    margin-bottom: 1.5rem;
 }
 
 .box p{
-    font-size: 30px;
-    margin: 50px;
+    font-size: 2rem;
+    margin: 2rem;
 }
 
 .pheasant, .pangolin, .deer, .viper{

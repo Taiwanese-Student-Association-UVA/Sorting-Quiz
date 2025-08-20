@@ -81,6 +81,7 @@ const Quiz = () => {
         <h2>{questions[currentQuestion].question}</h2>
         {questions[currentQuestion].answers.map((opt, idx) => (
           <button
+            className="question-button"
             key={idx}
             onClick={() => handleChoice(idx)}
             style={{
