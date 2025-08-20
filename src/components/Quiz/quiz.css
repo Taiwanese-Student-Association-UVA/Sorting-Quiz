@@ -2,35 +2,28 @@ h2{
     text-align: center;
 }
 .container{
-    width: 700px;
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    width: 750px;
+    margin: 80px auto;
     color: #262626;
     display: flex;
     flex-direction: column;
     gap: 20px;
     border-radius: 10px;
-    padding: 40px 50px;
 }
-.container hr{
-    height: 2px;
-    border: none;
-    background: grey;
-}
+
 .container button{
     display: flex;
     align-items:center;
     height: 70px;
     padding-left: 15px;
-    border: 1px solid grey;
+    border: 2px solid #262626;
     border-radius: 8px;
     margin-bottom: 10px;
     font-size: 20px;
     cursor: pointer;
 }
 .container button:hover{
-    background-color: rgb(181, 181, 230);
+    background-color: rgb(181, 181, 230) !important;
 }
 .next {
     text-align: center;
@@ -47,9 +40,7 @@ h2{
     font-size: 20px;
     cursor: pointer;
     padding: 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 10px;
+    margin: 10px 50px;
 }
 .next button:hover{
     background-color: rgb(181, 181, 230);

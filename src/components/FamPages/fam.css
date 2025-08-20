@@ -4,28 +4,52 @@
     align-items: center;
     align-content: center;
     text-align: center;
+    margin: none;
 }
 
 .box img{
-    height: 80vh;
+    height: 75vh;
     object-fit: contain;
 }
 
+.box button{
+    display: inline-block;
+    align-items: center;
+    width: 180px;
+    height: 70px;
+    background-color: rgb(62, 29, 155);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin: 20px auto;
+}
 
-.pheasant{
-    background-color: blue;
+.box p{
+    font-size: 30px;
+    margin: 50px;
+}
+
+.pheasant, .pangolin, .deer, .viper{
     height: 100vh;
 }
 
+.pheasant{
+    background-color: #1d2a75;
+    color: white;
+}
+
 .pangolin{
-    background-color: red;
-    height: 1000px;
+    background-color: #a82c25;
 }
 
 .deer{
-    background-color: yellow;
+    background-color: #7b701b;
 }
 
 .viper{
-    background-color: green;
+    background-color: #061e12;
+    color: white;
 }

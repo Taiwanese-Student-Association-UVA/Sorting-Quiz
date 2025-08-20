@@ -85,7 +85,7 @@ const Quiz = () => {
             onClick={() => handleChoice(idx)}
             style={{
               background:
-                answers[currentQuestion] === idx ? "lightblue" : "white",
+                answers[currentQuestion] === idx ? "#5855df" : "white",
             }}
           >
             {opt[0]}

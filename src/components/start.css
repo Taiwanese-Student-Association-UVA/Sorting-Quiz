@@ -1,3 +1,45 @@
 .start{
-    height: 1000px;
+    width: 750px;
+    margin: 80px auto;
+    color: #262626;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
+.start h1{
+    font-size: 45px;
+}
+
+.text{
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.image-container{
+    align-items: center;
+    border-image: url("../assets/cloud.png") 35 /
+  20px round;
+    margin: 40px auto;
+}
+
+.image-container img{
+    display: block;
+    height: auto;
+    width: 750px;
+    object-fit: contain;
+}
+.start button{
+    display: inline-block;
+    align-items: center;
+    width: 180px;
+    height: 70px;
+    background-color: rgb(62, 29, 155);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 40px auto;
 }
