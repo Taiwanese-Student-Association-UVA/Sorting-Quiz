@@ -1,7 +1,7 @@
 import { useState } from "react";
 import App from "../../App";
 import "./fam.css";
-import image from "../../assets/Pheasant.jpg";
+import image from "../../assets/Pheasant.png";
 
 const Pheasant = () => {
   const [restart, setRestart] = useState(false);

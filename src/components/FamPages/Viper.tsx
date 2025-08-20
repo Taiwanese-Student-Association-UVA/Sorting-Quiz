@@ -1,7 +1,7 @@
 import { useState } from "react";
 import App from "../../App";
 import "./fam.css";
-import image from "../../assets/Viper.jpg";
+import image from "../../assets/Viper.png";
 
 const Viper = () => {
   const [restart, setRestart] = useState(false);
