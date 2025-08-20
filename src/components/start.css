@@ -1,12 +1,12 @@
 .start{
+    height: 100vh;
     width: 750px;
-    margin: 80px auto;
+    margin: 0px auto;
     color: #262626;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
 }
 .start h1{
     font-size: 45px;
@@ -41,5 +41,5 @@
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
-    margin: 40px auto;
+    margin-top: 30px;
 }
