@@ -1,10 +1,9 @@
-import React from "react";
-import Quiz from "./components/Quiz/quiz";
+import Start from "./components/start";
 
 const App = () => {
   return (
     <>
-      <Quiz />
+      <Start />
     </>
   );
 };

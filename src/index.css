@@ -1,9 +1,9 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'figtree';
 }
 
 body{
   background-image: linear-gradient(#c5cbff, #4b40c9);
-  font-family: 'figtree';
 }
