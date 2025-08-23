@@ -14,7 +14,13 @@ const Pheasant = () => {
     <>
       <div className="pheasant">
         <div className="box">
-          <p>Your Fam is Pheasant!</p>
+          <p>
+            Your Fam is...
+            <br />
+            <strong>
+              <em>Pheasant!</em>
+            </strong>
+          </p>
           <img src={image} alt="Illustration for the Pangolin Family" />
           <button onClick={() => setRestart(true)}>Restart!</button>
         </div>

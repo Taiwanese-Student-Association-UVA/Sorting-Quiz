@@ -1,10 +1,18 @@
 import { useState } from "react";
 import "./quiz.css";
-import logo from "../../assets/logo.png";
 import Pheasant from "../FamPages/Pheasant";
 import Pangolin from "../FamPages/Pangolin";
 import Deer from "../FamPages/Deer";
 import Viper from "../FamPages/Viper";
+import {
+  first,
+  second,
+  third,
+  fourth,
+  fifth,
+  sixth,
+  seventh,
+} from "../../assets/question/question";
 
 const Quiz = () => {
   // score tracker and state arrays
@@ -112,58 +120,68 @@ const Quiz = () => {
 const questions = [
   // question 1
   {
-    question: "How early will you depart",
-    image: logo,
+    question:
+      "The time is drawing near to depart for TSA's GBM! How early will you leave?",
+    image: first,
     answers: [
-      ["Early, who knows if I might get lost!", 1],
-      ["Calculate to be just on time", 3],
-      ["Take your time—it’s not that deep", 5],
-      ["Whenever I feel like it", 6],
+      ["I have to leave early, who knows if I might get lost!", 1],
+      ["I'll calculate to be just on time. There's no need to be early.", 3],
+      ["I'll take my time—it’s not that deep.", 5],
+      ["Meh, I'll go Whenever I feel like it.", 6],
     ],
   },
 
   // question 2
   {
-    question: "What will you wear",
-    image: logo,
+    question:
+      "Oops, before you leave, you have to choose a fit! What are you going to wear?",
+    image: second,
     answers: [
-      ["Cute, gotta doll up", 1],
-      ["Cool, must maintain aura", 6],
-      ["Professional, never know what connections I can make", 3],
-      ["I dont gaf", 5],
+      ["I'll wear something cute! I gotta doll up :3", 1],
+      ["Just a calm luh fit you feel. You know I'll ptso tsts", 6],
+      [
+        "Something professional, you never know what connections I can make.",
+        3,
+      ],
+      ["I'll just throw something on...I dont gaf :p", 5],
     ],
   },
 
   // question 3
   {
-    question: "How will you get there",
-    image: logo,
+    question:
+      "Now that you're finally ready for you journey ahead, how are you going to get there?",
+    image: third,
     answers: [
-      ["Walk, gotta get my steps in", 5],
-      ["Bus, I'm nawt walking", 3],
-      ["Uber, no plebs in my area", 1],
-      ["Veo, …", 6],
+      ["I gotta get my steps in, so I'll walk", 5],
+      ["I'll bus, I paid those comprehensive fees after all!", 3],
+      ["Mmmm I'll Uber. I don't want any plebs in my area.", 1],
+      ["Veo…", 6],
     ],
   },
 
   // question 4
   {
-    question: "See someone with their backpack open, wyd?",
-    image: logo,
+    question:
+      "You get to the entrance of Newcomb, but you spot someone with their backpack open! What will you do?",
+    image: fourth,
     answers: [
-      ["Pretend you don’t see", 1],
-      ["Laugh, that’s embarrassing haha", 6],
-      ["Tell them, can’t do them like that", 5],
-      ["Try to zip it back up… but backfires", 3],
+      ["Walk ahead and pretend I don’t see. That's none of my business...", 1],
+      ["Laugh, that’s embarrassing LOL", 6],
+      ["Tell them, I can’t do them like that!", 5],
+      [
+        "Try to zip it back up…but that backfires and they notice...(how awkward >o<)",
+        3,
+      ],
     ],
   },
 
   // question 5
   {
-    question: "You get there, wyd",
-    image: logo,
+    question: "You finally arrive at Newcomb Ballroom (yippee!!!).  there, wyd",
+    image: fifth,
     answers: [
-      ["Sit down right away", 1],
+      ["Sit down right away, ", 1],
       ["Wait for friends", 3],
       ["Go on phone", 6],
       ["Start talking to new people", 5],
@@ -173,7 +191,7 @@ const questions = [
   // question 6
   {
     question: "What boba flavor ru getting?",
-    image: logo,
+    image: sixth,
     answers: [
       ["Thai Tea", 5],
       ["Passionfruit Tea", 3],
@@ -185,12 +203,15 @@ const questions = [
   // question 7
   {
     question: "After gbm where u going",
-    image: logo,
+    image: seventh,
     answers: [
-      ["Let's volleyball", 3],
-      ["Yap with the people", 5],
-      ["Explore Newcomb Ballroom", 6],
-      ["Go straight home", 1],
+      [
+        "Let's roll volleyball!! I wanna show off what I've learned from Haikyuu.",
+        3,
+      ],
+      ["Yap with the people, I ", 5],
+      ["I lowk Explore Newcomb Ballroom", 6],
+      ["I'm gonna go straight home. Today drained me >.<", 1],
     ],
   },
 ];

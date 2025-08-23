@@ -36,14 +36,12 @@ h2{
     color: rgb(109, 108, 108);
 }
 .image-box{
-    border-image: url("../../assets/cloud.png") 35 /
-  20px round;
     display: flex;
     align-self: center;
 }
 .image-box img{
     display: block;
     height: auto;
-    width: 40rem;
+    width: 57rem;
     object-fit: contain;
 }
