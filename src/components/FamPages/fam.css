@@ -4,7 +4,7 @@
     align-items: center;
     align-content: center;
     text-align: center;
-    margin: 0; /* Changed from 'none' to '0' */
+    margin: 0;
     padding: .5rem;
     box-sizing: border-box;
 }
@@ -14,11 +14,25 @@
     width: auto;
     max-width: 100%;
     object-fit: contain;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem auto;
+}
+
+.box h1{
+    margin-top: -1.5rem;
 }
 
 .box p{
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin: 2rem;
+}
+
+.description{
+        width: auto;
+        max-width: 40%;
+    }
+
+.description p{
+    font-size: 1.5rem;
     margin: 2rem;
 }
 
@@ -59,12 +73,22 @@
     .box img {
         max-height: 50vh;
     }
+
+    .description p{
+        font-size: 1rem;
+        margin: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .box p {
         font-size: 1.2rem;
         margin: 1rem 0.5rem;
+    }
+
+    .description p{
+        font-size: .8rem;
+        margin: 1rem .5rem;
     }
     
     .pheasant, .pangolin, .deer, .viper {

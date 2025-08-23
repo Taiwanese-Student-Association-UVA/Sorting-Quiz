@@ -16,7 +16,8 @@ import {
 
 const Quiz = () => {
   // score tracker and state arrays
-  let totalScore = 0;
+  // totalScore: [pheasant, pangolin, deer, viper]
+  let totalScore = [0, 0, 0, 0];
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const [isFinished, setIsFinished] = useState(false);
@@ -29,7 +30,7 @@ const Quiz = () => {
     setAnswers(newAnswers);
   };
 
-  // goes to the result page when clicking next on the last question
+  // goes to the next question; goes to result page when clicking next on the last question
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
@@ -45,22 +46,24 @@ const Quiz = () => {
     }
   };
 
-  // score ranges for respective fams
+  // goes through each question and grabs the index of the answer chosen
+  // gets the corresponding index for totalScore and adds 1 to the respective fam score
+  // returns the fam with the most points, and if there is a tie, the fam with the most
+  //   points that came first
   function getQuizResult() {
     for (let i = 0; i < questions.length; i++) {
-      let index = answers[i];
-      let score = questions[i].answers[index][1] as number;
-      totalScore += score;
-      console.log(totalScore);
+      let answerInd = answers[i];
+      let scoreInd = questions[i].answers[answerInd][1] as number;
+      totalScore[scoreInd] += 1;
     }
-    let num = totalScore;
-    if (7 <= num && num <= 20) {
+    let max = totalScore.indexOf(Math.max(...totalScore));
+    if (max === 0) {
       return "Pheasant";
-    } else if (21 <= num && num <= 34) {
+    } else if (max === 1) {
       return "Pangolin";
-    } else if (35 <= num && num <= 41) {
+    } else if (max === 2) {
       return "Deer";
-    } else if (42 <= num && num <= 100) {
+    } else {
       return "Viper";
     }
   }
@@ -121,13 +124,13 @@ const questions = [
   // question 1
   {
     question:
-      "The time is drawing near to depart for TSA's GBM! How early will you leave?",
+      "Oh my, the time is drawing near to depart for TSA's GBM! How early will you leave?",
     image: first,
     answers: [
-      ["I have to leave early, who knows if I might get lost!", 1],
-      ["I'll calculate to be just on time. There's no need to be early.", 3],
-      ["I'll take my time—it’s not that deep.", 5],
-      ["Meh, I'll go Whenever I feel like it.", 6],
+      ["I have to leave early, who knows if I might get lost!", 0],
+      ["I'll calculate to be just on time. There's no need to be early.", 1],
+      ["I'll take my time—it’s not that deep.", 2],
+      ["Meh, I'll go Whenever I feel like it.", 3],
     ],
   },
 
@@ -137,13 +140,13 @@ const questions = [
       "Oops, before you leave, you have to choose a fit! What are you going to wear?",
     image: second,
     answers: [
-      ["I'll wear something cute! I gotta doll up :3", 1],
-      ["Just a calm luh fit you feel. You know I'll ptso tsts", 6],
+      ["I'll wear something cute! I gotta doll up :3", 0],
+      ["Just a calm luh fit you feel. You know I'll ptso tsts", 3],
       [
         "Something professional, you never know what connections I can make.",
-        3,
+        1,
       ],
-      ["I'll just throw something on...I dont gaf :p", 5],
+      ["I'll just throw something on...I dont gaf :p", 2],
     ],
   },
 
@@ -153,10 +156,10 @@ const questions = [
       "Now that you're finally ready for you journey ahead, how are you going to get there?",
     image: third,
     answers: [
-      ["I gotta get my steps in, so I'll walk", 5],
-      ["I'll bus, I paid those comprehensive fees after all!", 3],
-      ["Mmmm I'll Uber. I don't want any plebs in my area.", 1],
-      ["Veo…", 6],
+      ["I gotta get my steps in, so I'll walk", 2],
+      ["I'll bus, I paid those comprehensive fees after all!", 1],
+      ["Mmmm I'll Uber. I don't want any plebs in my area.", 0],
+      ["Veo…", 3],
     ],
   },
 
@@ -166,52 +169,73 @@ const questions = [
       "You get to the entrance of Newcomb, but you spot someone with their backpack open! What will you do?",
     image: fourth,
     answers: [
-      ["Walk ahead and pretend I don’t see. That's none of my business...", 1],
-      ["Laugh, that’s embarrassing LOL", 6],
-      ["Tell them, I can’t do them like that!", 5],
+      ["Walk ahead and pretend I don’t see. That's none of my business...", 0],
+      ["Laugh, that’s embarrassing LOL", 3],
+      ["I have to tell them, I can’t do them like that!", 2],
       [
         "Try to zip it back up…but that backfires and they notice...(how awkward >o<)",
-        3,
+        1,
       ],
     ],
   },
 
   // question 5
   {
-    question: "You finally arrive at Newcomb Ballroom (yippee!!!).  there, wyd",
+    question:
+      "You finally arrive at Newcomb Ballroom (yippee!!!) Once you open the doors to the Ballroom, what do you do?",
     image: fifth,
     answers: [
-      ["Sit down right away, ", 1],
-      ["Wait for friends", 3],
-      ["Go on phone", 6],
-      ["Start talking to new people", 5],
+      [
+        "Sit down right away. I must give Exec and Oboard my full attention!",
+        0,
+      ],
+      [
+        "I'l wait for my friends! I want to sit next to them and yap about the exciting new things TSA has to offer!",
+        1,
+      ],
+      ["My phone is calling my name...", 3],
+      [
+        "Talk to the first person I see, this is the perfect time to meet new people!",
+        2,
+      ],
     ],
   },
 
   // question 6
   {
-    question: "What boba flavor ru getting?",
+    question:
+      "Wow! TSA's wonderful Culinary Chairs have prepared some delicious looking FREE boba!! What boba flavor are you getting?",
     image: sixth,
     answers: [
-      ["Thai Tea", 5],
-      ["Passionfruit Tea", 3],
-      ["Water please!", 1],
-      ["Nothing. Let me dehydrate in peace", 6],
+      ["Thai Tea, something rich and sweet will hit the spot right now!", 2],
+      [
+        "Passionfruit Tea, a refreshing beverage is much needed after my busy day today.",
+        1,
+      ],
+      ["Water please! I'm not really into boba.", 0],
+      ["Nothing. Let me dehydrate in peace.", 3],
     ],
   },
 
   // question 7
   {
-    question: "After gbm where u going",
+    question:
+      "Though it's sad to say, this spectacular and magnificent GBM has come to an end. The GBM might be over, but the night is still young! What will you do now?",
     image: seventh,
     answers: [
       [
         "Let's roll volleyball!! I wanna show off what I've learned from Haikyuu.",
+        1,
+      ],
+      [
+        "Yap with the people. I have to catch up with my friends, it's been so long since I've seen them!",
+        2,
+      ],
+      [
+        "I lowkey want to explore Newcomb Ballroom, what secrets lie in this building?",
         3,
       ],
-      ["Yap with the people, I ", 5],
-      ["I lowk Explore Newcomb Ballroom", 6],
-      ["I'm gonna go straight home. Today drained me >.<", 1],
+      ["I'm gonna go straight home. Today drained me >.<", 0],
     ],
   },
 ];

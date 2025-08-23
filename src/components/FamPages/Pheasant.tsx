@@ -15,13 +15,27 @@ const Pheasant = () => {
       <div className="pheasant">
         <div className="box">
           <p>
-            Your Fam is...
+            Hmm, I see...
             <br />
-            <strong>
-              <em>Pheasant!</em>
-            </strong>
+            I've analyzed your dream and it seems you resonate most with...
           </p>
+          <h1>
+            <strong>
+              <em>The Mikado Pheasants!</em>
+            </strong>
+          </h1>
           <img src={image} alt="Illustration for the Pangolin Family" />
+          <div className="description">
+            <p>
+              The{" "}
+              <strong>
+                <em>Mikado Pheasants</em>
+              </strong>{" "}
+              are known for their creativity, resilience, intelligence, and
+              noble demeanor!
+            </p>
+            <p>If you'd like to take the quiz again, click the button below!</p>
+          </div>
           <button onClick={() => setRestart(true)}>Restart!</button>
         </div>
       </div>
