@@ -4,11 +4,15 @@
     align-items: center;
     align-content: center;
     text-align: center;
-    margin: none;
+    margin: 0; /* Changed from 'none' to '0' */
+    padding: .5rem;
+    box-sizing: border-box;
 }
 
 .box img{
-    height: 70vh;
+    max-height: 70vh;
+    width: auto;
+    max-width: 100%;
     object-fit: contain;
     margin-bottom: 1.5rem;
 }
@@ -19,7 +23,10 @@
 }
 
 .pheasant, .pangolin, .deer, .viper{
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .pheasant{
@@ -40,4 +47,29 @@
 .viper{
     background-color: #8cab8f;
     color: #152218;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .box p {
+        font-size: 1.5rem;
+        margin: 1.5rem;
+    }
+    
+    .box img {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .box p {
+        font-size: 1.2rem;
+        margin: 1rem 0.5rem;
+    }
+    
+    .pheasant, .pangolin, .deer, .viper {
+        min-height: auto;
+        height: auto;
+        padding: 1rem 0.5rem;
+    }
 }
