@@ -14,20 +14,20 @@
 }
 
 .text{
+    font-size: large;
+    width: 35rem;
     margin-bottom: 1rem;
     text-align: center;
 }
 
 .image-container{
     align-items: center;
-    border-image: url("../assets/cloud.png") 35 /
-  20px round;
-    margin: 2rem auto;
+    margin: 0;
 }
 
 .image-container img{
     display: block;
     height: auto;
-    width: 35rem;
+    width: 55rem;
     object-fit: contain;
 }
