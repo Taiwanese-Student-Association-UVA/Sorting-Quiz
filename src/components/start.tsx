@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Quiz from "./Quiz/quiz";
 import "./start.css";
-import logo from "../assets/logo.png";
-// import picture from "../assets/start.png";
+import start from "../assets/start.png";
 
 const Start = () => {
   const [started, setStarted] = useState(false);
@@ -12,13 +11,17 @@ const Start = () => {
   }
   return (
     <div className="start">
+      <h1>Welcome to TSA's Sorting Quiz!</h1>
       <div className="text">
-        <h1>Welcome to TSA's Sorting Quiz!</h1>
-        <p>enter description and premise here</p>
+        <p>
+          It's the night before GBM and all you can think about is how excited
+          you are! As you drift off into slumber, you dream about how your
+          journey to tomorrow will go...
+        </p>
       </div>
 
       <div className="image-container">
-        <img src={logo} alt="TSA logo" />
+        <img src={start} alt="TSA logo" />
       </div>
       <button onClick={() => setStarted(true)}>Start!</button>
     </div>

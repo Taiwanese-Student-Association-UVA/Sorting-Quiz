@@ -23,19 +23,21 @@
 }
 
 .pheasant{
-    background-color: #1d2a75;
-    color: white;
+    background-color: #c2a3e9;
+    color: #0e0572;
 }
 
 .pangolin{
-    background-color: #a82c25;
+    background-color: #d8a85c;
+    color: #70130a;
 }
 
 .deer{
-    background-color: #7b701b;
+    background-color: #f4ebb3;
+    color: #776824;
 }
 
 .viper{
-    background-color: #061e12;
-    color: white;
+    background-color: #8cab8f;
+    color: #152218;
 }
