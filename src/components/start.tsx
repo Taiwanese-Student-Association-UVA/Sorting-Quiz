@@ -16,7 +16,7 @@ const Start = () => {
         <p>
           It's the night before GBM and all you can think about is how excited
           you are! As you drift off into slumber, you dream about how your
-          journey to tomorrow will go...
+          journey to Newcomb Ballroom tomorrow will go...
         </p>
       </div>
 

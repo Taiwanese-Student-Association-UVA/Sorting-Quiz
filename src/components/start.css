@@ -1,6 +1,6 @@
 .start {
     height: 100vh;
-    width: 50%;
+    width: 45%;
     max-width: 1200px;
     margin: 0 auto;
     color: #262626;
@@ -40,7 +40,7 @@
     object-fit: contain;
 }
 
-/* Mobile Adjustments */
+/* mobile */
 @media (max-width: 768px) {
     .start h1 {
         font-size: 2rem;
@@ -55,7 +55,7 @@
         height: auto;
         min-height: 100vh;
         justify-content: flex-start;
-        padding-top: 2rem;
+        padding-top: 1.5rem;
     }
 }
 
@@ -66,12 +66,17 @@
     }
     
     .text {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-bottom: 1rem;
         line-height: 1.4;
     }
     
     .start {
-        padding: 1rem 0.5rem;
+        width: 70%;
+        padding: .25rem 0.15rem;
+    }
+
+    .image-container {
+        max-width: 100%;
     }
 }

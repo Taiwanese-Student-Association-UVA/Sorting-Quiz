@@ -18,7 +18,7 @@
 }
 
 .box h1{
-    margin-top: -1.5rem;
+    margin-top: -1rem;
 }
 
 .box p{
@@ -29,7 +29,7 @@
 .description{
         width: auto;
         max-width: 40%;
-    }
+}
 
 .description p{
     font-size: 1.5rem;
@@ -83,12 +83,16 @@
 @media (max-width: 480px) {
     .box p {
         font-size: 1.2rem;
-        margin: 1rem 0.5rem;
+        margin: 1.5rem 0.5rem;
+    }
+
+    .box h1 {
+        margin: 1rem;
     }
 
     .description p{
-        font-size: .8rem;
-        margin: 1rem .5rem;
+        font-size: 1rem;
+        margin: 1.5rem .5rem;
     }
     
     .pheasant, .pangolin, .deer, .viper {
