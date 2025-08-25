@@ -49,6 +49,7 @@ button:hover{
     button {
         font-size: 1rem;
         min-width: 8rem;
+        min-height: 100vh;
         min-height: 3rem;
         padding: 0.6rem 1rem;
         margin: 0.6rem 0.3rem;
