@@ -90,8 +90,12 @@
         margin: 1rem;
     }
 
+    .description {
+        max-width: 60%;
+    }
+
     .description p{
-        font-size: 1rem;
+        font-size: 1.5rem;
         margin: 1.5rem .5rem;
     }
     

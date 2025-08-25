@@ -72,11 +72,14 @@
     }
     
     .start {
-        width: 70%;
-        padding: .25rem 0.15rem;
+        height: auto;
+        min-height: 100vh;
+        width: 85%;
+        justify-content: flex-start;
+        padding: 2rem 0.15rem;
     }
 
     .image-container {
-        max-width: 100%;
+        max-width: 120%;
     }
 }
