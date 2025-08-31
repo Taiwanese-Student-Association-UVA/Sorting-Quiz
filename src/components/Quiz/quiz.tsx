@@ -209,7 +209,7 @@ const questions = [
     answers: [
       ["Thai Tea, something rich and sweet will hit the spot right now!", 2],
       [
-        "Passionfruit Tea, a refreshing beverage is much needed after my busy day today.",
+        "Mango Green Tea, a refreshing beverage is much needed after my busy day today.",
         1,
       ],
       ["Water please! I'm not really into boba.", 0],
@@ -224,7 +224,7 @@ const questions = [
     image: seventh,
     answers: [
       [
-        "Let's roll volleyball!! I wanna show off what I've learned from Haikyuu.",
+        "Let's roll pickleball!! It's time to show TSA what I've got!.",
         1,
       ],
       [
