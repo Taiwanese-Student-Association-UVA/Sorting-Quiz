@@ -224,7 +224,7 @@ const questions = [
     image: seventh,
     answers: [
       [
-        "Let's roll pickleball!! It's time to show TSA what I've got!.",
+        "Let's roll pickleball!! It's time to show TSA what I've got!",
         1,
       ],
       [
